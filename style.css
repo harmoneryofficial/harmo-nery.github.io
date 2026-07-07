@@ -1,8 +1,10 @@
-/* ==========================================
+/* ==================================================
    Harmo-nery Website
-   Project Morning Bloom
-   Version 0.1
-========================================== */
+   Version 1.0
+   Part 1
+================================================== */
+
+/* ---------- Google Font Fallback ---------- */
 
 :root{
 
@@ -10,557 +12,476 @@
     --blue:#CFE8FF;
     --sage:#C9D8C5;
     --beige:#EADFCF;
+    --pink:#F5D7D7;
     --brown:#6E5145;
-    --pink:#EFB5B5;
-    --white:#FFFFFF;
 
-    --shadow:
-        0 15px 45px rgba(110,81,69,.08);
+    --text:#715B4D;
 
-    --radius:28px;
+    --shadow-sm:
+    0 8px 25px rgba(110,81,69,.08);
+
+    --shadow-lg:
+    0 25px 60px rgba(110,81,69,.10);
+
+    --radius:30px;
 
     --transition:.35s ease;
 
+    --max-width:1200px;
+
 }
 
-/* ==========================================
-   Reset
-========================================== */
+/* ==================================================
+Reset
+================================================== */
 
 *{
 
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
 
 }
 
 html{
 
-    scroll-behavior:smooth;
+scroll-behavior:smooth;
 
 }
 
 body{
 
-    background:var(--cream);
+font-family:"Poppins",sans-serif;
 
-    color:var(--brown);
+background:var(--cream);
 
-    font-family:'Poppins',sans-serif;
+color:var(--text);
 
-    line-height:1.7;
+overflow-x:hidden;
 
-    overflow-x:hidden;
+line-height:1.8;
 
 }
 
-/* subtle paper texture */
+/* Soft paper feeling */
 
 body::before{
 
-    content:"";
+content:"";
 
-    position:fixed;
+position:fixed;
 
-    inset:0;
+inset:0;
 
-    opacity:.18;
+pointer-events:none;
 
-    pointer-events:none;
+opacity:.12;
 
-    background:
+background:
 
-    radial-gradient(circle at top left,
-    rgba(255,255,255,.6),transparent 60%),
+radial-gradient(circle at top left,
+rgba(255,255,255,.9),
+transparent 60%),
 
-    repeating-linear-gradient(
-    45deg,
-    transparent,
-    transparent 12px,
-    rgba(255,255,255,.18) 13px,
-    transparent 14px);
+radial-gradient(circle at bottom right,
+rgba(255,255,255,.7),
+transparent 60%);
 
-    z-index:-1;
+z-index:-5;
 
 }
 
-/* ==========================================
-   Containers
-========================================== */
+/* ==================================================
+Typography
+================================================== */
 
-.container{
+h1,
+h2,
+h3{
 
-    width:min(1150px,92%);
-    margin:auto;
+font-family:"Cormorant Garamond",serif;
 
-}
+font-weight:600;
 
-.narrow{
-
-    max-width:760px;
-
-}
-
-/* ==========================================
-   Typography
-========================================== */
-
-h1,h2,h3{
-
-    font-family:'Cormorant Garamond',serif;
-
-    font-weight:600;
-
-    letter-spacing:.5px;
+color:var(--brown);
 
 }
 
 h1{
 
-    font-size:clamp(3rem,6vw,5rem);
+font-size:clamp(3.2rem,6vw,5.6rem);
 
-    line-height:1.1;
+line-height:1.05;
 
-    margin-bottom:1rem;
+margin-bottom:1.3rem;
 
 }
 
 h2{
 
-    font-size:clamp(2.2rem,4vw,3.2rem);
+font-size:clamp(2.4rem,4vw,3.4rem);
 
-    margin-bottom:1rem;
+margin-bottom:1rem;
+
+}
+
+h3{
+
+font-size:1.6rem;
+
+margin-bottom:.6rem;
 
 }
 
 p{
 
-    color:#756156;
+font-size:1.05rem;
+
+color:var(--text);
 
 }
 
-/* ==========================================
-   Navbar
-========================================== */
+blockquote{
+
+margin-top:2rem;
+
+font-family:"Cormorant Garamond",serif;
+
+font-size:2rem;
+
+color:var(--brown);
+
+font-style:italic;
+
+}
+
+/* ==================================================
+Layout
+================================================== */
+
+.container{
+
+width:min(var(--max-width),92%);
+
+margin:auto;
+
+}
+
+.narrow{
+
+max-width:760px;
+
+text-align:center;
+
+margin:auto;
+
+}
+
+.section{
+
+padding:7rem 0;
+
+}
+
+/* ==================================================
+Navigation
+================================================== */
 
 .navbar{
 
-    position:sticky;
+position:sticky;
 
-    top:0;
+top:0;
 
-    z-index:1000;
+z-index:999;
 
-    backdrop-filter:blur(14px);
+background:rgba(253,251,247,.82);
 
-    background:rgba(253,251,247,.78);
+backdrop-filter:blur(18px);
 
-    border-bottom:1px solid rgba(0,0,0,.04);
+border-bottom:1px solid rgba(110,81,69,.06);
 
 }
 
 .navbar .container{
 
-    display:flex;
+display:flex;
 
-    align-items:center;
+align-items:center;
 
-    justify-content:space-between;
+justify-content:space-between;
 
-    padding:1rem 0;
+padding:1.1rem 0;
 
 }
 
 .logo{
 
-    text-decoration:none;
+font-family:"Cormorant Garamond",serif;
 
-    color:var(--brown);
+font-size:2.1rem;
 
-    font-family:'Cormorant Garamond',serif;
+font-weight:700;
 
-    font-size:2rem;
+text-decoration:none;
 
-    font-weight:700;
+color:var(--brown);
+
+transition:var(--transition);
+
+}
+
+.logo:hover{
+
+opacity:.8;
 
 }
 
 .nav-links{
 
-    display:flex;
+display:flex;
 
-    list-style:none;
+gap:2rem;
 
-    gap:2rem;
+list-style:none;
 
 }
 
 .nav-links a{
 
-    text-decoration:none;
+text-decoration:none;
 
-    color:var(--brown);
+color:var(--brown);
 
-    transition:var(--transition);
+font-weight:500;
+
+transition:var(--transition);
 
 }
 
 .nav-links a:hover{
 
-    color:#8AAED8;
+color:#8CAFD8;
 
 }
 
-.shop-btn{
-
-    background:var(--blue);
-
-    padding:.8rem 1.6rem;
-
-    border-radius:999px;
-
-    text-decoration:none;
-
-    color:var(--brown);
-
-    font-weight:600;
-
-    transition:var(--transition);
-
-}
-
-.shop-btn:hover{
-
-    transform:translateY(-3px);
-
-    box-shadow:0 10px 30px rgba(207,232,255,.6);
-
-}
-
-/* ==========================================
-Hero
-========================================== */
-
-.hero{
-
-    position:relative;
-
-    min-height:90vh;
-
-    display:flex;
-
-    align-items:center;
-
-    overflow:hidden;
-
-}
-
-.hero-grid{
-
-    display:grid;
-
-    grid-template-columns:1fr 1fr;
-
-    gap:5rem;
-
-    align-items:center;
-
-}
-
-.eyebrow{
-
-    display:inline-block;
-
-    background:var(--beige);
-
-    padding:.4rem 1rem;
-
-    border-radius:999px;
-
-    margin-bottom:1.5rem;
-
-    font-size:.9rem;
-
-}
-
-.hero p{
-
-    font-size:1.1rem;
-
-    margin-bottom:2rem;
-
-    max-width:550px;
-
-}
-
-/* ==========================================
+/* ==================================================
 Buttons
-========================================== */
+================================================== */
 
-.hero-buttons{
-
-    display:flex;
-
-    gap:1rem;
-
-    flex-wrap:wrap;
-
-}
-
+.shop-btn,
 .primary-btn,
 .secondary-btn{
 
-    text-decoration:none;
+display:inline-flex;
 
-    padding:1rem 2rem;
+align-items:center;
 
-    border-radius:999px;
+justify-content:center;
 
-    transition:var(--transition);
+padding:1rem 2rem;
 
-    font-weight:600;
+border-radius:999px;
+
+text-decoration:none;
+
+font-weight:600;
+
+transition:var(--transition);
 
 }
 
+.shop-btn,
 .primary-btn{
 
-    background:var(--blue);
+background:var(--blue);
 
-    color:var(--brown);
+color:var(--brown);
+
+box-shadow:var(--shadow-sm);
 
 }
 
+.shop-btn:hover,
 .primary-btn:hover{
 
-    transform:translateY(-4px);
+transform:translateY(-4px);
 
-    box-shadow:0 15px 35px rgba(207,232,255,.7);
+box-shadow:
+
+0 18px 35px rgba(207,232,255,.65);
 
 }
 
 .secondary-btn{
 
-    border:2px solid var(--sage);
+border:2px solid var(--sage);
 
-    color:var(--brown);
+color:var(--brown);
+
+margin-left:1rem;
 
 }
 
 .secondary-btn:hover{
 
-    background:var(--sage);
+background:var(--sage);
 
 }
 
-/* ==========================================
+/* ==================================================
+Hero
+================================================== */
+
+.hero{
+
+min-height:88vh;
+
+display:flex;
+
+align-items:center;
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.hero-grid{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:5rem;
+
+align-items:center;
+
+}
+
+.eyebrow{
+
+display:inline-block;
+
+background:var(--beige);
+
+padding:.5rem 1.2rem;
+
+border-radius:999px;
+
+margin-bottom:1.8rem;
+
+font-size:.9rem;
+
+font-weight:600;
+
+}
+
+.hero p{
+
+max-width:540px;
+
+margin-bottom:2rem;
+
+font-size:1.15rem;
+
+}
+
+.hero-buttons{
+
+display:flex;
+
+flex-wrap:wrap;
+
+gap:1rem;
+
+}
+
+/* ==================================================
 Planner Card
-========================================== */
+================================================== */
 
 .planner-card{
 
-    background:white;
+background:white;
 
-    border-radius:34px;
+border-radius:36px;
 
-    overflow:hidden;
+overflow:hidden;
 
-    box-shadow:var(--shadow);
+box-shadow:var(--shadow-lg);
 
-    max-width:430px;
+transition:var(--transition);
 
-    margin:auto;
+max-width:430px;
 
-    transition:var(--transition);
+margin:auto;
 
 }
 
 .planner-card:hover{
 
-    transform:translateY(-10px);
+transform:
+
+translateY(-8px)
+
+rotate(.5deg);
 
 }
 
 .planner-banner{
 
-    background:rgba(110,81,69,.92);
+background:var(--brown);
 
-    color:white;
+color:white;
 
-    text-align:center;
+text-align:center;
 
-    padding:.9rem;
+padding:1rem;
 
-    font-weight:600;
+font-weight:600;
 
-    letter-spacing:2px;
+letter-spacing:2px;
 
 }
 
 .planner-placeholder{
 
-    aspect-ratio:8.5/11;
+aspect-ratio:8.5/11;
 
-    display:flex;
+display:flex;
 
-    flex-direction:column;
+flex-direction:column;
 
-    justify-content:center;
+justify-content:center;
 
-    align-items:center;
+align-items:center;
 
-    background:linear-gradient(
-    180deg,
-    #fff,
-    #fdfbf7);
+padding:2rem;
 
-}
+background:
 
-/* ==========================================
-Floating Clouds
-========================================== */
+linear-gradient(
 
-.cloud{
+180deg,
 
-    position:absolute;
+#ffffff,
 
-    background:white;
+#fbf8f4
 
-    border-radius:999px;
-
-    opacity:.55;
-
-    filter:blur(2px);
+);
 
 }
 
-.cloud::before,
-.cloud::after{
+.planner-placeholder h2{
 
-    content:"";
-
-    position:absolute;
-
-    background:white;
-
-    border-radius:50%;
+margin-bottom:.5rem;
 
 }
 
-.cloud-1{
-
-    width:160px;
-
-    height:55px;
-
-    top:90px;
-
-    left:-40px;
-
-    animation:floatCloud 32s linear infinite;
-
-}
-
-.cloud-2{
-
-    width:120px;
-
-    height:45px;
-
-    bottom:120px;
-
-    right:-20px;
-
-    animation:floatCloud 40s linear infinite reverse;
-
-}
-
-/* ==========================================
-Blueberries
-========================================== */
-
-.blueberry{
-
-    width:18px;
-
-    height:18px;
-
-    position:absolute;
-
-    border-radius:50%;
-
-    background:#9CC8FF;
-
-    box-shadow:
-    inset -3px -3px rgba(255,255,255,.5);
-
-}
-
-.blueberry-1{
-
-    top:22%;
-
-    right:18%;
-
-    animation:floatBerry 8s ease-in-out infinite;
-
-}
-
-.blueberry-2{
-
-    bottom:20%;
-
-    left:8%;
-
-    animation:floatBerry 10s ease-in-out infinite;
-
-}
-
-/* ==========================================
-Animations
-========================================== */
-
-@keyframes floatCloud{
-
-0%{
-
-transform:translateX(0);
-
-}
-
-50%{
-
-transform:translateX(50px);
-
-}
-
-100%{
-
-transform:translateX(0);
-
-}
-
-}
-
-@keyframes floatBerry{
-
-0%,100%{
-
-transform:translateY(0);
-
-}
-
-50%{
-
-transform:translateY(-12px);
-
-}
-
-}
-
-/* ==========================================
+/* ==================================================
 Responsive
-========================================== */
+================================================== */
 
 @media(max-width:900px){
 
@@ -569,6 +490,14 @@ Responsive
 grid-template-columns:1fr;
 
 text-align:center;
+
+gap:4rem;
+
+}
+
+.hero p{
+
+margin-inline:auto;
 
 }
 
@@ -581,6 +510,12 @@ justify-content:center;
 .nav-links{
 
 display:none;
+
+}
+
+.secondary-btn{
+
+margin-left:0;
 
 }
 
