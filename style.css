@@ -6,22 +6,33 @@
 
 /* ---------- Google Font Fallback ---------- */
 
-:root{
+::root{
 
-    --cream:#FDFBF7;
+    /* ✨ Harmo-nery Palette */
+
+    --sky:#FFF2F7;
+    --accent:#FFD0E1;
+
     --blue:#CFE8FF;
-    --sage:#C9D8C5;
-    --beige:#EADFCF;
-    --pink:#F5D7D7;
-    --brown:#6E5145;
+    --sage:#D9E8D3;
 
-    --text:#715B4D;
+    --brown:#7B5A4D;
+    --text:#7B5A4D;
+
+    --white:#FFFFFF;
+
+    /* Compatibility */
+    --cream:var(--sky);
+    --pink:var(--accent);
+    --beige:#FFEAF2;
+
+    /* Shadows */
 
     --shadow-sm:
-    0 8px 25px rgba(110,81,69,.08);
+    0 8px 25px rgba(123,90,77,.08);
 
     --shadow-lg:
-    0 25px 60px rgba(110,81,69,.10);
+    0 25px 60px rgba(123,90,77,.12);
 
     --radius:30px;
 
@@ -30,7 +41,6 @@
     --max-width:1200px;
 
 }
-
 /* ==================================================
 Reset
 ================================================== */
