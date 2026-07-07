@@ -700,85 +700,50 @@ margin:auto;
 Floating Clouds
 ================================================== */
 
-.cloud{
+.cloud {
+    position: absolute;
+    width: 180px;
+    height: 65px;
 
-position:absolute;
+    background: #F8F3EE;
 
-background:white;
+    border-radius: 100px;
 
-border-radius:999px;
+    opacity: .85;
 
-opacity:.55;
+    filter: blur(1px);
 
-filter:blur(2px);
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.04);
 
-z-index:-1;
-
+    animation: cloudFloat 14s ease-in-out infinite;
 }
 
 .cloud::before,
-.cloud::after{
+.cloud::after {
+    content: "";
 
-content:"";
+    position: absolute;
 
-position:absolute;
+    background: inherit;
 
-background:white;
-
-border-radius:50%;
-
+    border-radius: 50%;
 }
 
-.cloud::before{
+.cloud::before {
+    width: 80px;
+    height: 80px;
 
-width:55px;
-
-height:55px;
-
-left:18px;
-
-top:-18px;
-
+    left: 25px;
+    top: -30px;
 }
 
-.cloud::after{
+.cloud::after {
+    width: 95px;
+    height: 95px;
 
-width:65px;
-
-height:65px;
-
-right:18px;
-
-top:-28px;
-
-}
-
-.cloud-1{
-
-width:180px;
-
-height:60px;
-
-top:110px;
-
-left:-60px;
-
-animation:cloudFloat 30s ease-in-out infinite;
-
-}
-
-.cloud-2{
-
-width:150px;
-
-height:55px;
-
-right:-50px;
-
-bottom:120px;
-
-animation:cloudFloat 36s ease-in-out infinite reverse;
-
+    right: 25px;
+    top: -40px;
 }
 
 /* ==================================================
@@ -849,25 +814,19 @@ animation:berryFloat 10s ease-in-out infinite;
 Animations
 ================================================== */
 
-@keyframes cloudFloat{
+@keyframes cloudFloat {
 
-0%{
+    0% {
+        transform: translateY(0px);
+    }
 
-transform:translateX(0);
+    50% {
+        transform: translateY(-12px);
+    }
 
-}
-
-50%{
-
-transform:translateX(40px);
-
-}
-
-100%{
-
-transform:translateX(0);
-
-}
+    100% {
+        transform: translateY(0px);
+    }
 
 }
 
