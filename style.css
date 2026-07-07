@@ -1654,4 +1654,31 @@ max-width:1320px;
 
 }
 
+}/* ==========================================
+   Planner Floating Animation
+========================================== */
+
+@keyframes plannerFloat {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.planner-placeholder img {
+    animation: plannerFloat 7s ease-in-out infinite;
+    transition: transform .35s ease, box-shadow .35s ease;
+    cursor: pointer;
+}
+
+.planner-placeholder img:hover {
+    transform: translateY(-10px) rotate(-2deg) scale(1.02);
+    box-shadow: 0 25px 45px rgba(110, 81, 69, 0.18);
 }
