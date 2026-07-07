@@ -1291,4 +1291,367 @@ padding:4rem 1.5rem;
 
 }
 
+}/* ==================================================
+   Harmo-nery Website
+   Part 3 - Premium Polish
+================================================== */
+
+/* ==================================================
+Section Spacing Improvements
+================================================== */
+
+section{
+
+position:relative;
+
+}
+
+section h2{
+
+text-align:center;
+
+margin-bottom:1rem;
+
+}
+
+section p{
+
+max-width:700px;
+
+margin-inline:auto;
+
+}
+
+/* ==================================================
+Soft Fade Animation
+================================================== */
+
+.fade-up{
+
+opacity:0;
+
+transform:translateY(30px);
+
+transition:
+
+opacity .8s ease,
+
+transform .8s ease;
+
+}
+
+.fade-up.show{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+/* ==================================================
+Gentle Hover Effects
+================================================== */
+
+.card,
+.planner-card,
+.primary-btn,
+.secondary-btn,
+.shop-btn{
+
+will-change:transform;
+
+}
+
+.card:hover{
+
+transform:
+
+translateY(-10px)
+
+scale(1.02);
+
+}
+
+.primary-btn:hover{
+
+transform:
+
+translateY(-5px)
+
+scale(1.03);
+
+}
+
+.secondary-btn:hover{
+
+transform:translateY(-3px);
+
+}
+
+/* ==================================================
+Planner Image
+================================================== */
+
+.planner-placeholder{
+
+padding:0;
+
+overflow:hidden;
+
+}
+
+.planner-placeholder img{
+
+width:100%;
+
+display:block;
+
+transition:transform .6s ease;
+
+}
+
+.planner-card:hover img{
+
+transform:scale(1.04);
+
+}
+
+/* ==================================================
+Logo Image Support
+================================================== */
+
+.logo img{
+
+height:54px;
+
+display:block;
+
+transition:transform .35s ease;
+
+}
+
+.logo:hover img{
+
+transform:rotate(-3deg);
+
+}
+
+/* ==================================================
+Pretty Scrollbar
+================================================== */
+
+::-webkit-scrollbar{
+
+width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+background:var(--cream);
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:var(--sage);
+
+border-radius:999px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+background:var(--blue);
+
+}
+
+/* ==================================================
+Selection Color
+================================================== */
+
+::selection{
+
+background:var(--blue);
+
+color:var(--brown);
+
+}
+
+/* ==================================================
+Footer Polish
+================================================== */
+
+footer{
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+footer::before{
+
+content:"☁";
+
+position:absolute;
+
+left:8%;
+
+top:35%;
+
+font-size:2rem;
+
+opacity:.12;
+
+}
+
+footer::after{
+
+content:"🐇";
+
+position:absolute;
+
+right:8%;
+
+bottom:20%;
+
+font-size:1.7rem;
+
+opacity:.18;
+
+}
+
+/* ==================================================
+Reduced Motion Accessibility
+================================================== */
+
+@media(prefers-reduced-motion:reduce){
+
+*{
+
+animation:none!important;
+
+transition:none!important;
+
+scroll-behavior:auto!important;
+
+}
+
+}
+
+/* ==================================================
+Dark Mode
+================================================== */
+
+@media(prefers-color-scheme:dark){
+
+:root{
+
+--cream:#252321;
+--text:#EFE8E2;
+--brown:#FFF5EC;
+
+}
+
+body{
+
+background:#252321;
+
+color:var(--text);
+
+}
+
+body::before{
+
+opacity:.03;
+
+}
+
+.navbar{
+
+background:rgba(37,35,33,.85);
+
+}
+
+.card,
+.planner-card,
+footer{
+
+background:#302C29;
+
+}
+
+p{
+
+color:#DDD5CF;
+
+}
+
+.secondary-btn{
+
+border-color:var(--sage);
+
+}
+
+}
+
+/* ==================================================
+Mobile Polish
+================================================== */
+
+@media(max-width:700px){
+
+.section{
+
+padding:5rem 0;
+
+}
+
+h1{
+
+font-size:3rem;
+
+}
+
+.hero{
+
+min-height:auto;
+
+padding:5rem 0;
+
+}
+
+.logo img{
+
+height:46px;
+
+}
+
+.planner-card{
+
+max-width:340px;
+
+}
+
+}
+
+/* ==================================================
+Desktop Breathing Room
+================================================== */
+
+@media(min-width:1400px){
+
+.hero-grid{
+
+gap:8rem;
+
+}
+
+.container{
+
+max-width:1320px;
+
+}
+
 }
