@@ -247,6 +247,14 @@ nav{
 .logo:hover {
 
     opacity: .8;
+}
+nav {
+
+    flex: 1;
+
+    display: flex;
+
+    justify-content: center;
 
 }
 
