@@ -1371,8 +1371,6 @@ Gentle Hover Effects
 
 .card,
 .planner-card,
-.primary-btn,
-.secondary-btn,
 .shop-btn {
 
     will-change: transform;
@@ -1387,17 +1385,50 @@ Gentle Hover Effects
 
 }
 
+.primary-btn {
+
+    background: var(--blue);
+
+    color: var(--brown);
+
+    box-shadow: var(--shadow-sm);
+
+}
+
 .primary-btn:hover {
 
-    transform:
+    transform: translateY(-4px);
 
-        translateY(-5px) scale(1.03);
+    box-shadow: 0 18px 35px rgba(207, 232, 255, .65);
+
+}
+
+.secondary-btn {
+
+    background: white;
+
+    border: 2px solid var(--sage);
+
+    color: var(--brown);
 
 }
 
 .secondary-btn:hover {
 
-    transform: translateY(-3px);
+    background: var(--sage);
+
+    transform: translateY(-4px);
+
+}
+.hero-buttons {
+
+    display: flex;
+
+    gap: 1.25rem;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
 
 }
 
