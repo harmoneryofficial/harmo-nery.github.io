@@ -212,14 +212,22 @@ Navigation
     border-bottom: 1px solid rgba(110, 81, 69, .06);
 
 }
+.navbar .container{
 
-.navbar .container {
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    align-items: center;
-    gap: 2rem;
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
 }
+nav{
 
+    display:flex;
+
+    align-items:center;
+
+}
 .logo {
 
     font-family: "Cormorant Garamond", serif;
@@ -278,7 +286,9 @@ Navigation
 
     align-items:center;
 
-    gap:1.3rem;
+    gap:1.25rem;
+
+    margin-left:2rem;
 
 }
 
@@ -318,7 +328,7 @@ Buttons
 
     justify-content: center;
 
-    padding: 1rem 2rem;
+    padding: 8rem 0;
 
     border-radius: 999px;
 
