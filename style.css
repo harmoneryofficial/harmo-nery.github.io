@@ -1731,3 +1731,115 @@ Desktop Breathing Room
     box-shadow: 0 25px 45px rgba(110, 81, 69, 0.18);
 
 }
+/* ==================================================
+Shop Search
+================================================== */
+
+.shop-search{
+
+    padding:2rem 0;
+
+}
+
+.search-box{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:1rem;
+
+    background:white;
+
+    padding:1rem 1.4rem;
+
+    border-radius:999px;
+
+    box-shadow:var(--shadow-sm);
+
+    max-width:700px;
+
+    margin:auto;
+
+}
+
+.search-box input{
+
+    flex:1;
+
+    border:none;
+
+    outline:none;
+
+    background:transparent;
+
+    font-size:1rem;
+
+    color:var(--text);
+
+    font-family:"Poppins",sans-serif;
+
+}
+
+.search-box svg{
+
+    color:var(--brown);
+
+}
+/* ==================================================
+Shop Categories
+================================================== */
+
+.shop-categories{
+
+    padding:1rem 0 3rem;
+
+}
+
+.category-pills{
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:1rem;
+
+}
+
+.category-pills button{
+
+    border:none;
+
+    background:white;
+
+    color:var(--text);
+
+    padding:.8rem 1.4rem;
+
+    border-radius:999px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    font-family:"Poppins",sans-serif;
+
+    box-shadow:var(--shadow-sm);
+
+    transition:var(--transition);
+
+}
+
+.category-pills button:hover{
+
+    transform:translateY(-3px);
+
+}
+
+.category-pills .active{
+
+    background:var(--accent);
+
+}
