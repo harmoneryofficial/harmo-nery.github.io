@@ -1732,99 +1732,85 @@ Desktop Breathing Room
 
 }
 /* ==================================================
-Shop Search
+Shop Toolbar
 ================================================== */
 
-.shop-search{
+.shop-toolbar{
 
     padding:2rem 0;
 
 }
 
-.search-box{
+.shop-toolbar .container{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+.filter-btn,
+.sort-btn{
 
     display:flex;
 
     align-items:center;
 
-    gap:1rem;
+    gap:.6rem;
 
-    background:white;
-
-    padding:1rem 1.4rem;
-
-    border-radius:999px;
-
-    box-shadow:var(--shadow-sm);
-
-    max-width:700px;
-
-    margin:auto;
-
-}
-
-.search-box input{
-
-    flex:1;
+    background:none;
 
     border:none;
-
-    outline:none;
-
-    background:transparent;
-
-    font-size:1rem;
-
-    color:var(--text);
-
-    font-family:"Poppins",sans-serif;
-
-}
-
-.search-box svg{
-
-    color:var(--brown);
-
-}
-/* ==================================================
-Shop Categories
-================================================== */
-
-.shop-categories{
-
-    padding:1rem 0 3rem;
-
-}
-
-.category-pills{
-
-    display:flex;
-
-    justify-content:center;
-
-    flex-wrap:wrap;
-
-    gap:1rem;
-
-}
-
-.category-pills button{
-
-    border:none;
-
-    background:white;
-
-    color:var(--text);
-
-    padding:.8rem 1.4rem;
-
-    border-radius:999px;
 
     cursor:pointer;
 
-    font-weight:600;
+    color:var(--text);
+
+    font-size:1rem;
 
     font-family:"Poppins",sans-serif;
+
+    font-weight:600;
+
+    transition:var(--transition);
+
+}
+
+.filter-btn:hover,
+.sort-btn:hover{
+
+    color:var(--accent);
+
+}
+/* ==================================================
+Product Grid
+================================================== */
+
+.product-grid{
+
+    padding:2rem 0 5rem;
+
+}
+
+.products{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+    gap:2rem;
+
+}
+
+.product-card{
+
+    background:white;
+
+    border-radius:28px;
+
+    overflow:hidden;
 
     box-shadow:var(--shadow-sm);
 
@@ -1832,14 +1818,44 @@ Shop Categories
 
 }
 
-.category-pills button:hover{
+.product-card:hover{
 
-    transform:translateY(-3px);
+    transform:translateY(-6px);
+
+    box-shadow:var(--shadow-lg);
 
 }
 
-.category-pills .active{
+.product-card img{
 
-    background:var(--accent);
+    width:100%;
+
+    aspect-ratio:1/1;
+
+    object-fit:contain;
+
+    padding:2rem;
+
+    background:var(--sky);
+
+    display:block;
+
+}
+
+.product-card h3{
+
+    padding:1rem 1.25rem .4rem;
+
+    font-size:1.2rem;
+
+}
+
+.price{
+
+    padding:0 1.25rem 1.3rem;
+
+    font-weight:600;
+
+    color:var(--brown);
 
 }
