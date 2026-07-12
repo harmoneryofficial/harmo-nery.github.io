@@ -1873,3 +1873,128 @@ Product Grid
     display:block;
 
 }
+/* ==========================================
+   Cozy Toast Notification
+========================================== */
+
+.toast{
+
+    position:fixed;
+
+    bottom:30px;
+
+    right:-400px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:1rem;
+
+    background:white;
+
+    padding:1rem 1.25rem;
+
+    border-radius:22px;
+
+    box-shadow:0 18px 40px rgba(110,81,69,.18);
+
+    transition:right .55s ease;
+
+    z-index:9999;
+
+    max-width:340px;
+
+}
+
+.toast.show{
+
+    right:30px;
+
+}
+
+.toast-icon{
+
+    width:58px;
+
+    height:58px;
+
+    border-radius:50%;
+
+    background:var(--sky);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    overflow:hidden;
+
+    flex-shrink:0;
+
+}
+
+.toast-icon img{
+
+    width:80%;
+
+    height:80%;
+
+    object-fit:contain;
+
+}
+
+.toast-text strong{
+
+    display:block;
+
+    color:var(--brown);
+
+}
+
+.toast-text p{
+
+    margin:4px 0 0;
+
+    font-size:.9rem;
+
+}
+.toast.show .toast-icon img{
+
+    animation:bunniWave .8s ease;
+
+}
+@keyframes bunniiWave{
+
+0%{
+
+transform:rotate(0deg);
+
+}
+
+25%{
+
+transform:rotate(-10deg);
+
+}
+
+50%{
+
+transform:rotate(10deg);
+
+}
+
+75%{
+
+transform:rotate(-8deg);
+
+}
+
+100%{
+
+transform:rotate(0deg);
+
+}
+
+}

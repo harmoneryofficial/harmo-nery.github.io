@@ -154,24 +154,103 @@
     </div>
 
 </section>
-<script>
-lucide.createIcons();
-</script>
+<div class="toast" id="cartToast">
+
+    <div class="toast-icon">
+
+        <img src="assets/bunnii-placeholder.png" alt="BUNNII">
+
+    </div>
+
+    <div class="toast-text">
+
+        <strong id="toastTitle"></strong>
+
+        <p id="toastBody"></p>
+
+    </div>
+
+</div>
+
 <script>
 
 lucide.createIcons();
+
+const toast = document.getElementById("cartToast");
+const toastTitle = document.getElementById("toastTitle");
+const toastBody = document.getElementById("toastBody");
+
+const cozyMessages = [
+
+{
+title:"I'll keep this safe for you! ♡",
+body:(name)=>`${name} has been added to your cozy bag.`
+},
+
+{
+title:"BUNNII tucked this into your cozy bag! ♡",
+body:(name)=>`${name} is waiting patiently for checkout.`
+},
+
+{
+title:"One more cozy find! ✨",
+body:(name)=>`${name} just joined your collection.`
+},
+
+{
+title:"Saved with extra care. 🌸",
+body:(name)=>`BUNNII is watching over ${name}.`
+},
+
+{
+title:"A peaceful choice. ☁️",
+body:(name)=>`${name} is safely tucked into your cozy bag.`
+},
+
+{
+title:"Yay! 🎀",
+body:(name)=>`BUNNII couldn't resist packing ${name} for you.`
+}
+
+];
 
 document.querySelectorAll(".add-cart-btn").forEach(button => {
 
     button.addEventListener("click", () => {
 
-        alert("🛍️ Added to your cozy bag!");
+        const productCard = button.closest(".product-card");
+
+        const productName =
+            productCard.querySelector("h3").textContent;
+
+        let message;
+        if (Math.random() < 0.02) {
+
+            message = rareMessages[Math.floor(Math.random() * rareMessages.length)];
+
+        } else {
+
+            message = cozyMessages[Math.floor(Math.random() * cozyMessages.length)];
+
+        }
+
+        toastTitle.textContent = message.title;
+        toastBody.textContent = message.body(productName);
+
+        toast.classList.add("show");
+
+        setTimeout(() => {
+
+            toast.classList.remove("show");
+
+        }, 5000);
 
     });
 
 });
 
 </script>
+
 </body>
 
 </html>

@@ -92,3 +92,12 @@ console.log(
     "%cStay Harmonious 🐇",
     "font-size:14px;color:#8CAFD8;"
 );
+const toast = document.getElementById("cartToast");
+
+toast.classList.add("show");
+
+setTimeout(() => {
+
+    toast.classList.remove("show");
+
+}, 5000);
