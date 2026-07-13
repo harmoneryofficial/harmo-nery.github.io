@@ -76,13 +76,38 @@
 
         <h3>Product Type</h3>
 
-        <label><input type="checkbox"> Planners</label>
+    <label>
 
-        <label><input type="checkbox"> Sticker Sheets</label>
+    <input
+        type="checkbox"
+        id="plannerFilter"
+    >
 
-        <label><input type="checkbox"> Keychains</label>
+    Planners
 
-        <label><input type="checkbox"> Hair Clips</label>
+</label>
+
+<label>
+
+    <input
+        type="checkbox"
+        id="stickerFilter"
+    >
+
+    Sticker Sheets
+
+</label>
+
+<label>
+
+    <input
+        type="checkbox"
+        id="keychainFilter"
+    >
+
+    Keychains
+
+</label>
 
     </div>
 
@@ -98,12 +123,14 @@
 
     </div>
 
-    <button class="primary-btn filter-apply">
+    <button
+    class="primary-btn filter-apply"
+    id="applyFilters"
+>
 
-        Apply Filters
+    Apply Filters
 
-    </button>
-
+</button>
 </aside>
 <section class="shop-hero">
 
@@ -269,6 +296,24 @@ body:(name)=>`BUNNII couldn't resist packing ${name} for you.`
 }
 
 ];
+const rareMessages = [
+
+{
+title:"🌟 Lucky Day!",
+body:(name)=>`BUNNII did a happy dance because you added ${name}!`
+},
+
+{
+title:"Stay Harmonious. ♡",
+body:(name)=>`Thank you for supporting Harmo-nery. ${name} is packed with extra care.`
+},
+
+{
+title:"✨ Secret Cozy Message!",
+body:(name)=>`You found a rare BUNNII message while adding ${name}!`
+}
+
+];
 
 document.querySelectorAll(".add-cart-btn").forEach(button => {
 
@@ -336,6 +381,53 @@ filterOverlay.addEventListener("click", () => {
 
 });
 
+const applyFilters = document.getElementById("applyFilters");
+
+applyFilters.addEventListener("click", () => {
+
+    const plannerChecked =
+        document.getElementById("plannerFilter").checked;
+
+    const stickerChecked =
+        document.getElementById("stickerFilter").checked;
+
+    const keychainChecked =
+        document.getElementById("keychainFilter").checked;
+
+    document.querySelectorAll(".product-card").forEach(card => {
+
+        const type = card.dataset.type;
+
+        let show = true;
+
+        if (
+            plannerChecked ||
+            stickerChecked ||
+            keychainChecked
+        ){
+
+            show = false;
+
+            if(type === "planner" && plannerChecked)
+                show = true;
+
+            if(type === "sticker" && stickerChecked)
+                show = true;
+
+            if(type === "keychain" && keychainChecked)
+                show = true;
+
+        }
+
+        card.style.display = show ? "block" : "none";
+
+    });
+
+    filterPanel.classList.remove("show");
+
+    filterOverlay.classList.remove("show");
+
+});
 </script>
 
 </body>
