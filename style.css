@@ -2042,7 +2042,35 @@ Product Grid
 
     width:100%;
 
-    margin-top:1rem;
+    margin-top:2rem;
+
+    padding:1rem;
+
+    border:none;
+
+    border-radius:999px;
+
+    background:var(--accent);
+
+    color:var(--brown);
+
+    font-weight:600;
+
+    font-size:1rem;
+
+    cursor:pointer;
+
+    transition:var(--transition);
+
+    box-shadow:var(--shadow-sm);
+
+}
+
+.filter-apply:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:var(--shadow-lg);
 
 }
 
