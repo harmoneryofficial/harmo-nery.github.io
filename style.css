@@ -1750,8 +1750,41 @@ Shop Toolbar
     align-items:center;
 
 }
+.filter-btn{
 
-.filter-btn,
+    display:flex;
+
+    align-items:center;
+
+    gap:.6rem;
+
+    background:white;
+
+    border:none;
+
+    border-radius:999px;
+
+    padding:.9rem 1.4rem;
+
+    cursor:pointer;
+
+    color:var(--brown);
+
+    font-weight:600;
+
+    box-shadow:var(--shadow-sm);
+
+    transition:var(--transition);
+
+}
+
+.filter-btn:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:var(--shadow-lg);
+
+}
 .sort-btn{
 
     display:flex;
@@ -1873,6 +1906,146 @@ Product Grid
     display:block;
 
 }
+/* ==========================================
+   Slide-Out Filter Panel
+========================================== */
+
+.filter-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.25);
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.35s ease;
+
+    z-index:9998;
+
+}
+
+.filter-overlay.show{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
+.filter-panel{
+
+    position:fixed;
+
+    top:0;
+
+    left:-380px;
+
+    width:340px;
+
+    max-width:90%;
+
+    height:100vh;
+
+    background:var(--cream);
+
+    box-shadow:15px 0 45px rgba(110,81,69,.12);
+
+    padding:2rem;
+
+    transition:left .4s ease;
+
+    z-index:9999;
+
+    overflow-y:auto;
+
+}
+
+.filter-panel.show{
+
+    left:0;
+
+}
+
+.filter-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:2rem;
+
+}
+
+.filter-header h2{
+
+    margin:0;
+
+}
+
+#closeFilter{
+
+    border:none;
+
+    background:none;
+
+    font-size:1.6rem;
+
+    cursor:pointer;
+
+    color:var(--brown);
+
+}
+
+.filter-section{
+
+    margin-bottom:2rem;
+
+}
+
+.filter-section h3{
+
+    font-size:1.1rem;
+
+    margin-bottom:1rem;
+
+}
+
+.filter-section label{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:.75rem;
+
+    margin-bottom:.9rem;
+
+    cursor:pointer;
+
+    color:var(--text);
+
+}
+
+.filter-section input{
+
+    accent-color:var(--accent);
+
+}
+
+.filter-apply{
+
+    width:100%;
+
+    margin-top:1rem;
+
+}
+
 /* ==========================================
    Cozy Toast Notification
 ========================================== */

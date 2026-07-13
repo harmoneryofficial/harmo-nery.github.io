@@ -57,6 +57,54 @@
 
     </div>
     </header>
+    <div class="filter-overlay" id="filterOverlay"></div>
+
+<aside class="filter-panel" id="filterPanel">
+
+    <div class="filter-header">
+
+        <h2>Filter</h2>
+
+       <button id="closeFilter">
+
+    <i data-lucide="x"></i>
+
+</button>
+    </div>
+
+    <div class="filter-section">
+
+        <h3>Product Type</h3>
+
+        <label><input type="checkbox"> Planners</label>
+
+        <label><input type="checkbox"> Sticker Sheets</label>
+
+        <label><input type="checkbox"> Keychains</label>
+
+        <label><input type="checkbox"> Hair Clips</label>
+
+    </div>
+
+    <div class="filter-section">
+
+        <h3>Price</h3>
+
+        <label><input type="radio" name="price"> Under $10</label>
+
+        <label><input type="radio" name="price"> $10–20</label>
+
+        <label><input type="radio" name="price"> $20+</label>
+
+    </div>
+
+    <button class="primary-btn filter-apply">
+
+        Apply Filters
+
+    </button>
+
+</aside>
 <section class="shop-hero">
 
     <div class="container narrow">
@@ -74,8 +122,7 @@
 
     <div class="container">
 
-        <button class="filter-btn">
-
+<button class="filter-btn" id="openFilter">
             <i data-lucide="sliders-horizontal"></i>
 
             Filter
@@ -246,6 +293,37 @@ document.querySelectorAll(".add-cart-btn").forEach(button => {
         }, 5000);
 
     });
+
+});
+const filterPanel = document.getElementById("filterPanel");
+
+const filterOverlay = document.getElementById("filterOverlay");
+
+const openFilter = document.getElementById("openFilter");
+
+const closeFilter = document.getElementById("closeFilter");
+
+openFilter.addEventListener("click", () => {
+
+    filterPanel.classList.add("show");
+
+    filterOverlay.classList.add("show");
+
+});
+
+closeFilter.addEventListener("click", () => {
+
+    filterPanel.classList.remove("show");
+
+    filterOverlay.classList.remove("show");
+
+});
+
+filterOverlay.addEventListener("click", () => {
+
+    filterPanel.classList.remove("show");
+
+    filterOverlay.classList.remove("show");
 
 });
 
