@@ -2254,7 +2254,7 @@ transform:translateY(0);
     inset:0;
     display:flex;
     align-items:center;
-    padding-left:30px;
+    padding-left:40px;
     pointer-events:none;   /* ← THIS */
     gap:.3rem;
     color:#8a766d;
