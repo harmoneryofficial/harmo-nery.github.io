@@ -2199,3 +2199,200 @@ transform:rotate(0deg);
 }
 
 }
+.bunny-hop{
+
+    animation:bunnyHop .4s ease;
+
+}
+
+@keyframes bunnyHop{
+
+0%{
+
+transform:translateY(0);
+
+}
+
+35%{
+
+transform:translateY(-3px);
+
+}
+
+70%{
+
+transform:translateY(0);
+
+}
+
+100%{
+
+transform:translateY(0);
+
+}
+
+}
+.search-wrapper{
+
+    position:relative;
+
+}
+
+#typewriterOverlay{
+
+    position:absolute;
+
+    left:55px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    display:flex;
+
+    align-items:center;
+
+    gap:.3rem;
+
+    pointer-events:none;
+
+    color:#8a766d;
+
+    transition:opacity .25s ease;
+
+}
+
+#typewriterOverlay.hidden{
+
+    opacity:0;
+
+}
+#bunnyCursor{
+
+    display:inline-block;
+
+}
+
+#bunnyCursor.hop{
+
+    animation:bunnyHop .45s ease;
+
+}
+
+@keyframes bunnyHop{
+
+0%{transform:translateY(0);}
+35%{transform:translateY(-4px);}
+70%{transform:translateY(0);}
+100%{transform:translateY(0);}
+
+}
+/* ==========================================
+   Search Overlay
+========================================== */
+
+.search-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.18);
+
+    backdrop-filter:blur(8px);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:flex-start;
+
+    padding-top:7rem;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.35s ease;
+
+    z-index:10000;
+
+}
+
+.search-overlay.show{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
+.search-container{
+
+    width:min(700px,90vw);
+
+    transform:translateY(-25px);
+
+    opacity:0;
+
+    transition:
+        transform .35s ease,
+        opacity .35s ease;
+
+}
+
+.search-overlay.show .search-container{
+
+    transform:translateY(0);
+
+    opacity:1;
+
+}
+
+.search-wrapper{
+
+    position:relative;
+
+    background:white;
+
+    border-radius:999px;
+
+    padding:.9rem 1.4rem;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:1rem;
+
+    box-shadow:var(--shadow-lg);
+
+}
+
+.search-wrapper input{
+
+    flex:1;
+
+    border:none;
+
+    outline:none;
+
+    background:transparent;
+
+    font-size:1rem;
+
+    color:var(--text);
+
+}
+
+#closeSearch{
+
+    background:none;
+
+    border:none;
+
+    cursor:pointer;
+
+    color:var(--brown);
+
+}

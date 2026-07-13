@@ -56,6 +56,33 @@
         </div>
 
     </div>
+    <div class="search-overlay" id="searchOverlay">
+
+  <div class="search-wrapper">
+
+<i data-lucide="search" id="openSearch"></i>
+    <input
+        type="text"
+        id="searchInput"
+        autocomplete="off"
+    >
+
+    <div id="typewriterOverlay">
+
+        <span id="typewriterText"></span>
+
+        <span id="bunnyCursor">🐇</span>
+
+    </div>
+
+    <button id="closeSearch">
+
+        <i data-lucide="x"></i>
+
+    </button>
+
+</div>
+</div>
     </header>
     <div class="filter-overlay" id="filterOverlay"></div>
 
@@ -156,15 +183,23 @@
 
         </button>
 
-        <button class="sort-btn">
+       <div class="sort-box">
 
-            Date, New to Old
+    <label for="sortProducts">Sort</label>
 
-            <i data-lucide="chevron-down"></i>
+    <select id="sortProducts">
 
-        </button>
+        <option value="newest">Newest</option>
 
-    </div>
+        <option value="low-high">Price: Low to High</option>
+
+        <option value="high-low">Price: High to Low</option>
+
+        <option value="az">A–Z</option>
+
+    </select>
+
+</div>
 
 </section>
 <section class="product-grid">
@@ -426,6 +461,199 @@ applyFilters.addEventListener("click", () => {
     filterPanel.classList.remove("show");
 
     filterOverlay.classList.remove("show");
+
+});
+const sortProducts = document.getElementById("sortProducts");
+
+sortProducts.addEventListener("change", () => {
+
+    const products = document.querySelector(".products");
+
+    const cards = [...products.querySelectorAll(".product-card")];
+
+    switch(sortProducts.value){
+
+        case "low-high":
+
+            cards.sort((a,b)=>
+                parseFloat(a.dataset.price)-parseFloat(b.dataset.price));
+
+            break;
+
+        case "high-low":
+
+            cards.sort((a,b)=>
+                parseFloat(b.dataset.price)-parseFloat(a.dataset.price));
+
+            break;
+
+        case "az":
+
+            cards.sort((a,b)=>
+                a.querySelector("h3").textContent.localeCompare(
+                b.querySelector("h3").textContent));
+
+            break;
+
+        default:
+
+            cards.reverse();
+
+    }
+
+    cards.forEach(card=>products.appendChild(card));
+
+});
+/* ===========================
+   BUNNII Typewriter Search
+=========================== */
+
+const searchMessages = [
+
+    "Search for something cozy...",
+    "Looking for planners...",
+    "Need stickers today?",
+    "BUNNII can help!",
+    "Stay Harmonious. ♡",
+    "Looking for something sweet? 🫐",
+    "Find your next favorite..."
+
+];
+
+const rareSearchMessages = [
+
+    "You're one of BUNNII's favorite visitors. ♡",
+    "Have you had water today? 💧",
+    "I'm glad you're here. ☁️",
+    "BUNNII is cheering you on!",
+    "Psst... I hid something cute somewhere."
+
+];
+
+const searchInput = document.getElementById("searchInput");
+
+const overlay = document.getElementById("typewriterOverlay");
+
+const typewriterText = document.getElementById("typewriterText");
+
+const bunnyCursor = document.getElementById("bunnyCursor");
+
+let searchIndex = 0;
+let charIndex = 0;
+let deleting = false;
+
+function typeSearch(){
+
+    if(document.activeElement === searchInput){
+
+        setTimeout(typeSearch,200);
+
+        return;
+
+    }
+
+    const pool =
+        Math.random() < 0.01
+            ? rareSearchMessages
+            : searchMessages;
+
+    const message = pool[searchIndex % pool.length];
+
+    if(!deleting){
+
+        charIndex++;
+
+    }else{
+
+        charIndex--;
+
+    }
+
+    typewriterText.textContent =
+        message.substring(0,charIndex);
+
+    let speed = deleting ? 35 : 60;
+
+    if(!deleting && charIndex === message.length){
+
+        deleting = true;
+
+        speed = 1800;
+
+        bunnyCursor.classList.add("hop");
+
+        setTimeout(()=>{
+
+            bunnyCursor.classList.remove("hop");
+
+        },400);
+
+    }
+
+    if(deleting && charIndex === 0){
+
+        deleting = false;
+
+        searchIndex++;
+
+        speed = 450;
+
+    }
+
+    setTimeout(typeSearch,speed);
+
+}
+
+typeSearch();
+
+/* Hide overlay while typing */
+
+searchInput.addEventListener("focus",()=>{
+
+    overlay.classList.add("hidden");
+
+});
+
+searchInput.addEventListener("blur",()=>{
+
+    if(searchInput.value===""){
+
+        overlay.classList.remove("hidden");
+
+    }
+
+});
+/* ===========================
+   Search Overlay
+=========================== */
+
+const searchOverlay = document.getElementById("searchOverlay");
+
+const openSearch = document.getElementById("openSearch");
+
+const closeSearch = document.getElementById("closeSearch");
+
+openSearch.addEventListener("click",()=>{
+
+    searchOverlay.classList.add("show");
+
+    searchInput.focus();
+
+});
+
+closeSearch.addEventListener("click",()=>{
+
+    searchOverlay.classList.remove("show");
+
+});
+
+searchOverlay.addEventListener("click",(e)=>{
+
+    if(e.target===searchOverlay){
+
+        searchOverlay.classList.remove("show");
+
+    }
 
 });
 </script>
