@@ -69,31 +69,40 @@
     </div>
 
 </div>
+    </header>
+    <div class="search-overlay" id="searchOverlay">
 
-<i data-lucide="search"></i>
-    <input
-        type="text"
-        id="searchInput"
-        autocomplete="off"
-    >
+    <div class="search-container">
 
-    <div id="typewriterOverlay">
+        <div class="search-wrapper">
 
-        <span id="typewriterText"></span>
+            <i data-lucide="search"></i>
 
-        <span id="bunnyCursor">🐇</span>
+            <input
+                type="text"
+                id="searchInput"
+                autocomplete="off"
+            >
+
+            <div id="typewriterOverlay">
+
+                <span id="typewriterText"></span>
+
+                <span id="bunnyCursor">🐇</span>
+
+            </div>
+
+            <button id="closeSearch">
+
+                <i data-lucide="x"></i>
+
+            </button>
+
+        </div>
 
     </div>
 
-    <button id="closeSearch">
-
-        <i data-lucide="x"></i>
-
-    </button>
-
 </div>
-</div>
-    </header>
     <div class="filter-overlay" id="filterOverlay"></div>
 
 <aside class="filter-panel" id="filterPanel">
@@ -299,7 +308,6 @@
     </div>
 
 </div>
-
 <script>
 
 lucide.createIcons();
