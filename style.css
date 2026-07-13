@@ -2237,25 +2237,26 @@ transform:translateY(0);
     position:relative;
 
 }
+#searchInput{
+
+    width:100%;
+    background:transparent;
+    border:none;
+    outline:none;
+
+    position:relative;
+    z-index:2;
+
+}
 
 #typewriterOverlay{
-
     position:absolute;
-
-    left:55px;
-
-    top:50%;
-
-    transform:translateY(-50%);
-
+    inset:0;
     display:flex;
-
     align-items:center;
-
+    padding-left:24px;
+    pointer-events:none;   /* ← THIS */
     gap:.3rem;
-
-    pointer-events:none;
-
     color:#8a766d;
 
     transition:opacity .25s ease;
