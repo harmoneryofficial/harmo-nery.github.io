@@ -2254,7 +2254,7 @@ transform:translateY(0);
     inset:0;
     display:flex;
     align-items:center;
-    padding-left:24px;
+    padding-left:30px;
     pointer-events:none;   /* ← THIS */
     gap:.3rem;
     color:#8a766d;
@@ -2298,17 +2298,14 @@ transform:translateY(0);
 
     inset:0;
 
-    background:rgba(0,0,0,.18);
-
-    backdrop-filter:blur(8px);
-
+background:transparent;
     display:flex;
 
     justify-content:center;
 
     align-items:flex-start;
 
-    padding-top:7rem;
+    padding-top:120px;
 
     opacity:0;
 
@@ -2354,11 +2351,13 @@ transform:translateY(0);
 
     position:relative;
 
+    width:min(700px,90vw);
+
     background:white;
 
     border-radius:999px;
 
-    padding:.9rem 1.4rem;
+    padding:.9rem 1.6rem;
 
     display:flex;
 
@@ -2366,7 +2365,7 @@ transform:translateY(0);
 
     gap:1rem;
 
-    box-shadow:var(--shadow-lg);
+    box-shadow:0 20px 40px rgba(110,81,69,.12);
 
 }
 
