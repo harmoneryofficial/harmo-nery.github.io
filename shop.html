@@ -229,9 +229,10 @@
 
             <!-- Product 1 -->
 <div
-    class="product-card"
-    data-type="planner"
-    data-price="8"
+class="product-card"
+data-type="planner"
+data-price="8"
+data-search="planner blueberry daily printable journal productivity notes study school morning cozy">
 >
                 <img src="assets/planner.png" alt="Blueberry Morning Planner">
 
@@ -260,9 +261,10 @@
 
             <!-- Product 2 -->
 <div
-    class="product-card"
-    data-type="sticker"
-    data-price="7.5"
+class="product-card"
+data-type="sticker"
+data-price="7.5"
+data-search="sticker bunny spring flowers pink cute kawaii deco">
 >
                 <img src="assets/bunnii-placeholder.png" alt="BUNNII placeholder">
 
@@ -274,9 +276,10 @@
 
             <!-- Product 3 -->
 <div
-    class="product-card"
-    data-type="keychain"
-    data-price="6.99"
+class="product-card"
+data-type="keychain"
+data-price="6.99"
+data-search="keychain acrylic bunny accessory cute bag charm">
 >
                 <img src="assets/bunnii-placeholder.png" alt="BUNNII Acrylic Keychain">
 
@@ -624,19 +627,33 @@ function typeSearch(){
 
 typeSearch();
 
-/* Hide overlay while typing */
+/* Hide BUNNII while typing */
 
-searchInput.addEventListener("focus",()=>{
+searchInput.addEventListener("focus", () => {
 
-    overlay.classList.add("hidden");
+    overlay.style.opacity = "0";
 
 });
 
-searchInput.addEventListener("blur",()=>{
+searchInput.addEventListener("blur", () => {
 
-    if(searchInput.value===""){
+    if (searchInput.value === "") {
 
-        overlay.classList.remove("hidden");
+        overlay.style.opacity = "1";
+
+    }
+
+});
+
+searchInput.addEventListener("input", () => {
+
+    if (searchInput.value.length > 0) {
+
+        overlay.style.opacity = "0";
+
+    } else {
+
+        overlay.style.opacity = "1";
 
     }
 
@@ -674,6 +691,38 @@ searchOverlay.addEventListener("click",(e)=>{
     }
 
 });
+/* ===========================
+   Live Product Search
+=========================== */
+
+searchInput.addEventListener("input", () => {
+
+    const search = searchInput.value.trim().toLowerCase();
+
+    document.querySelectorAll(".product-card").forEach(card => {
+
+        const title = card.querySelector("h3").textContent.toLowerCase();
+
+        const tags = (card.dataset.search || "").toLowerCase();
+
+        if (
+            title.includes(search) ||
+            tags.includes(search) ||
+            search === ""
+        ){
+
+            card.style.display = "block";
+
+        } else {
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+});
+
 </script>
 
 </body>
